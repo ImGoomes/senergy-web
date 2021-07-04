@@ -1,0 +1,17 @@
+.site-header {
+    background-color: rgb(0, 0, 0);
+}
+
+.menu-item {
+    color: white;
+}
+
+.menu-item:hover {
+    color: violet;
+    cursor: pointer;
+}
+
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    color: violet;
+}

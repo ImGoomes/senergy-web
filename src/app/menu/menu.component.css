@@ -1,17 +1,29 @@
-.site-header {
-    background-color: rgb(0, 0, 0);
-}
-
-.menu-item {
-    color: white;
-}
-
-.menu-item:hover {
-    color: violet;
-    cursor: pointer;
+.menu-main {
+    background-color: #3E4E6A !important;
+    width: 280px !important;
+    position: absolute;
 }
 
 .logo {
-    font-family: 'Permanent Marker', cursive;
-    color: violet;
+    height: 3em !important;
+    margin-left: 20%;
+}
+
+.material-icons {
+    font-size: 1.5em;
+    color: #9FA2B4;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.menu-color {
+    color: #9FA2B4;
+}
+
+.active-menu {
+    background-color: rgba(159, 162, 180, 0.2) !important;
+    color: #DDE2FF !important;
 }

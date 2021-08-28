@@ -1,0 +1,51 @@
+.main {
+    position: relative;
+    padding-left: 16%;
+    padding-top: 1%;
+}
+
+.title {
+    padding-bottom: 1em;
+}
+
+.title h3 {
+    color: #3E4E6A;
+}
+
+h3,
+h4 {
+    font-family: 'Mulish', sans-serif;
+}
+
+.card-content h4 {
+    color: #9FA2B4;
+}
+
+.card-content {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    border: 2px solid #dfe0eb;
+    background-color: #FFF;
+    text-align: center;
+    padding: 1em;
+    margin-left: 4em;
+}
+
+.capital-letter {
+    font-family: 'Mulish', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #252733;
+}
+
+.capital-letter-2 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #252733;
+}
+
+.small-letter {
+    color: #9FA2B4;
+}

@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,15 @@ import { LoginComponent } from './login/login.component';
     MenuComponent,
     HeaderComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BootstrapModule,
     AppRoutingModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

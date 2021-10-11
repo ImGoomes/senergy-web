@@ -1,0 +1,73 @@
+.container {
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    background: #3E4E6A;
+}
+
+.main-row {
+    background-color: #3C444C;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.form {
+    background-color: #3C444C;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+label,
+input {
+    color: #D0D0D0
+}
+
+input {
+    background-color: #3C444C !important;
+    border: 1px solid #D0D0D0;
+    color: #D0D0D0 !important;
+}
+
+.mat-stepper-horizontal {
+    background-color: #3C444C;
+    margin-top: 8px;
+}
+
+.mat-form-field {
+    background-color: #3C444C;
+    margin-top: 16px;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.mat-step-icon-selected {
+    background-color: red !important;
+    color: red !important;
+}
+
+.btn {
+    color: #000000;
+    border: 1px solid #FFDD46;
+    background-color: #FFDD46;
+    float: right;
+    font-size: 14px;
+}
+
+.btn-2 {
+    color: #000000;
+    border: 1px solid #D0D0D0;
+    background-color: #D0D0D0;
+    font-size: 14px;
+}
+
+.logo {
+    margin-top: 1em;
+    width: 250px;
+}

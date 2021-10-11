@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row main-row">
+        <img class="logo" src="../../assets/img/senergy-log.png" alt="Logo senergy">
+        <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup" label="Dados pessoais">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nome</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome Sobrenome">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Senha</label>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Confirmação de senha</label>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">CPF</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="000.0000.000-00">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Celular</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="(00)00000-0000">
+                    </div>
+                </form>
+                <div>
+                    <button class="btn btn-lg btn-primary btn-block" matStepperNext>Próximo</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Endereço" state="chat">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">CEP</label>
+                        <input type="email" class="form-control" id="teste" placeholder="00000-000">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Endereço</label>
+                        <input type="email" class="form-control" id="teste" placeholder="Rua example">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Número</label>
+                        <input type="email" class="form-control" id="teste" placeholder="000">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Bairro</label>
+                        <input type="email" class="form-control" id="teste" placeholder="Bairro example">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Cidade</label>
+                        <input type="email" class="form-control" id="teste" placeholder="Cidade example">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Estado</label>
+                        <input type="email" class="form-control" id="teste" placeholder="Estado example">
+                    </div>
+                </form>
+                <button class="btn-2 btn-lg btn-primary btn-block" matStepperPrevious>Anterior</button>
+                <button class="btn btn-lg btn-primary btn-block">Cadastrar</button>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>
+
+<ng-template matStepperIcon="phone">
+    <mat-icon>settings</mat-icon>
+</ng-template>
+<ng-template matStepperIcon="chat">
+    <mat-icon>forum</mat-icon>
+</ng-template>

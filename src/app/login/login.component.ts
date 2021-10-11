@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _service: AuthService,
     private _fb: FormBuilder,
-    private _route: Router,
+    private _router: Router,
     private _toastr: ToastrService
   ) { }
 
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger
     if (this.loginForm.valid) {
       this.loginForm.disable();
       this._service.getUsers().subscribe((user) => {
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
           && x.password == this.loginForm.controls['Password'].value)
         if (ususario.length > 0) {
           this._service.loggedIn.next(true);
-          this._route.navigate(['/dashboard']);
+          this._router.navigate(['/dashboard']);
         } else {
           this._toastr.error('Verifique suas credenciais!', 'Email ou senha incorretos.');
           this.loginForm.enable();
@@ -54,4 +53,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  navigate(url: string) {
+    this._router.navigateByUrl(url);
+  }
 }

@@ -27,7 +27,6 @@ export class AuthService {
 
   
   getUsers(): Observable<any[]> {
-    debugger
     return this._http.get<any[]>(environment.jsonServerAPI + "logins/");
   }
   

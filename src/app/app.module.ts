@@ -13,6 +13,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { ShortNumber } from './pipes/short-number.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     HeaderComponent,
     DashboardComponent,
     LoginComponent,
+    ShortNumber
   ],
   imports: [
     BrowserModule,

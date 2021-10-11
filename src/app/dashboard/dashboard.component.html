@@ -10,21 +10,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 card-content">
-                        <h5>Colaboradores Inativos</h5>
-                        <span class="capital-letter">2</span>
+                        <h5>Dispositivos ativos</h5>
+                        <span class="capital-letter">{{this.deviceData.length}}</span>
                     </div>
                     <div class="col-3 card-content">
-                        <h5>Colaboradores em Need to Progress</h5>
-                        <span class="capital-letter">43</span>
+                        <h5>Ambientes ativos</h5>
+                        <span class="capital-letter">{{this.roomData.length}}</span>
                     </div>
                     <div class="col-3 card-content">
-                        <h5>Colaboradores em Progressing</h5>
-                        <span class="capital-letter">40</span>
+                        <h5>Estimativa economia mensal</h5>
+                        <span class="capital-letter-2">
+                            <span class="small-letter">R$</span> {{this.dashData.ecoMensalEst}}
+                        </span>
                     </div>
                     <div class="col-3 card-content">
-                        <h5>Colaboradores em Differentiating
-                        </h5>
-                        <span class="capital-letter">64</span>
+                        <h5>Cômodo com mais consumo</h5>
+                        <span class="capital-letter-2">{{this.dashData.comodoMaisGasto}}</span><br/>
+                        <span class="small-letter">{{this.dashData.comodoMaisGastoQtd}} KW</span>
                     </div>
                 </div>
             </div>
@@ -33,98 +35,54 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="row chart-content">
-                            <h5>Orçado x Realizado - Budget</h5>
+                            <h5>Consumo energia</h5>
                             <div echarts [options]="optionsChart" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
                             <div class="row dash-numbers">
                                 <hr>
                                 <div class="col-4 vert-line">
-                                    <span class="small-letter">Consumo total KW</span><br/>
-                                    <b class="font">7372 kw</b>
+                                    <span class="small-letter">Cons. total KW</span><br/>
+                                    <b class="font">{{this.dashData.consumoTotalKw}} KW</b>
                                 </div>
                                 <div class="col-4 vert-line">
-                                    <span class="small-letter">Economia total acumulada</span><br/>
-                                    <b class="font">R$ 432,00</b>
+                                    <span class="small-letter">Economia total</span><br/>
+                                    <b class="font">R$ {{this.dashData.ecoTotalAcum | ShortNumber}}</b>
                                 </div>
-                                <div class="col-4 vert-line">
+                                <div class="col-4">
                                     <span class="small-letter">Prospect anual</span><br/>
-                                    <b class="font">R$ 2K</b>
+                                    <b class="font">R$ {{this.dashData.prospectAnual | ShortNumber}}</b>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row chart-content">
-                            <a class="link" (click)="navigate('colaboradores')">Detalhes</a>
+                            <a class="link" (click)="navigate('rooms')">Detalhes</a>
                             <h5>Ambientes</h5>
                             <span class="small-letter">Ambientes: Quantidade do gasto mensal em KW</span>
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <td class="font">Quarto Artur</td>
-                                        <td class="font">1537 KW</td>
+                                    <tr *ngFor="let room of this.roomData">
+                                        <td class="font">{{room.room}}</td>
+                                        <td class="font">{{room.value}} KW</td>
                                         <td>
-                                            <span class="active">Ativo  </span>
+                                            <span [ngClass]="{'active': room.status == 'ACTIVE', 
+                                            'license' : room.status === 'LICENSE',
+                                            'inactive' : room.status === 'INACTIVE' }">{{room.status}}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="font">Sala de estar</td>
-                                        <td class="font">345 KW</td>
-                                        <td>
-                                            <span class="active">Ativo </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font">Quarto do Gabriel</td>
-                                        <td class="font">1189 KW</td>
-                                        <td>
-                                            <span class="active">Ativo </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font">Banheiro</td>
-                                        <td class="font">114 KW</td>
-                                        <td>
-                                            <span class="inactive">Ativo</span>
-                                        </td>
-                                    </tr>
-                                    <!-- <tr *ngFor="let colab of this.colaboradoresData">
-                                        <td class="font">{{colab.name}}</td>
-                                        <td class="font">{{colab.occupation}}</td>
-                                        <td>
-                                            <span [ngClass]="{'active': colab.status == 'ACTIVE', 
-                                            'license' : colab.status === 'LICENSE',
-                                            'inactive' : colab.status === 'INACTIVE' }">{{colab.status}}</span>
-                                        </td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
                         <div class="row chart-content">
-                            <a class="link" (click)="navigate('hotskills')">Detalhes</a>
+                            <a class="link" (click)="navigate('devices')">Detalhes</a>
                             <h5>Dispositivos</h5>
-                            <span class="small-letter">Total de dispositivos (5)</span>
+                            <span class="small-letter">Total de dispositivos ({{this.deviceData.length}})</span>
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <td class="font">Televisão sala</td>
-                                        <td class="font grey-font">44 KWh</td>
+                                    <tr *ngFor="let device of this.deviceData">
+                                        <td class="font">{{device.device}}</td>
+                                        <td class="font grey-font">{{device.KWh}} KWh</td>
                                     </tr>
-                                    <tr>
-                                        <td class="font">Geladeira</td>
-                                        <td class="font grey-font">90 KWh</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font">Frigobar</td>
-                                        <td class="font grey-font">10 KWh</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font">Computador Gabriel</td>
-                                        <td class="font grey-font">110 KWh</td>
-                                    </tr>
-                                    <!-- <tr *ngFor="let hotskill of this.hotskillsData">
-                                        <td class="font">Teste</td>
-                                        <td class="font grey-font">Teste 2</td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>

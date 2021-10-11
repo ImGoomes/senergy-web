@@ -1,7 +1,6 @@
 .main {
     position: relative;
     padding-left: 16%;
-    overflow-y: hidden;
     padding-top: 1%;
 }
 
@@ -55,13 +54,20 @@ h6 {
     color: #252733;
 }
 
+.capital-letter-2 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #252733;
+}
+
 .small-letter {
     color: #9FA2B4;
     font-size: 0.8rem;
 }
 
 .ml-25 {
-    margin-left: 18%;
+    margin-left: 25%
 }
 
 .demo-chart {

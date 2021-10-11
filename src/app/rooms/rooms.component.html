@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="ml-25 row">
+    <div class="col">
+        <div class="title">
+            <h3>Ambientes</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col table-content">
+            <h5>Lista de ambientes</h5>
+            <span class="small-letter">Ambientes: Quantidade do gasto mensal em KW</span>
+            <div class="row" *ngIf="!this.rooms || this.rooms.length <= 0">
+                <div class="spinner-border text-warning" role="status">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Dispositivo</th>
+                        <th scope="col">KhWh</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let room of this.rooms">
+                        <td>{{room.room}} KW</td>
+                        <td>{{room.value}}</td>
+                        <td>
+                            <span [ngClass]="{'active': room.status == 'ACTIVE', 
+                        'license' : room.status === 'LICENSE',
+                        'inactive' : room.status === 'INACTIVE' }">{{room.status}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

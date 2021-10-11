@@ -1,29 +1,29 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 h-100 text-white bg-dark menu-main">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <img src="./../../assets/img/senergy-log.png" alt="logo" class="logo">
+        <img src="./../../assets/img/senergy-log.png" alt="logo" class="logo" (click)="navigate('dashboard')">
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a class="nav-link active-menu" aria-current="page">
-                <span class="material-icons bi me-2">insights</span><span class="menu-color">Dashboard</span>
+            <a [ngClass]="this.route == 'dashboard' ? 'nav-link active-menu' : 'nav-link text-white'" aria-current="page" (click)="navigate('dashboard')">
+                <span class="material-icons bi me-2">equalizer</span><span class="menu-color">Dashboard</span>
             </a>
         </li>
         <hr class="menu-color">
         <li class="nav-item">
-            <a class="nav-link text-white">
+            <a [ngClass]="this.route == 'devices' ? 'nav-link active-menu' : 'nav-link text-white'" aria-current="page" (click)="navigate('devices')">
                 <span class="material-icons bi me-2">phone_iphone</span><span class="menu-color">Dispositivos</span>
             </a>
         </li>
         <hr class="menu-color">
         <li class="nav-item">
-            <a class="nav-link text-white">
+            <a [ngClass]="this.route == 'rooms' ? 'nav-link active-menu' : 'nav-link text-white'" aria-current="page" (click)="navigate('rooms')">
                 <span class="material-icons bi me-2">place</span><span class="menu-color">Ambientes</span>
             </a>
         </li>
         <hr class="menu-color">
         <li class="nav-item">
-            <a class="nav-link text-white">
+            <a class="nav-link text-white" aria-current="page">
                 <span class="material-icons bi me-2">settings</span><span class="menu-color">Configurações</span>
             </a>
         </li>
@@ -34,7 +34,7 @@
             <strong>mdo</strong>
         </a> -->
         <hr class="line">
-        <a class="nav-link text-white">
+        <a class="nav-link text-white" (click)="navigate('login')">
             <span class="material-icons bi me-2" width="16" height="16">logout</span><span class="menu-color">Sair</span>
         </a>
     </div>

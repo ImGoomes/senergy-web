@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { ShortNumber } from './pipes/short-number.pipe';
+import { DevicesComponent } from './devices/devices.component';
+import { RoomsComponent } from './rooms/rooms.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ShortNumber } from './pipes/short-number.pipe';
     HeaderComponent,
     DashboardComponent,
     LoginComponent,
-    ShortNumber
+    ShortNumber,
+    DevicesComponent,
+    RoomsComponent
   ],
   imports: [
     BrowserModule,

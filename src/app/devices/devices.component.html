@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="ml-25 row">
+    <div class="col">
+        <div class="title">
+            <h3>Dispositivo</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col table-content">
+            <h5>Lista de dispositivo</h5>
+            <span class="small-letter">Dispostivos em monitoramento</span>
+            <div class="row" *ngIf="!this.devices || this.devices.length <= 0">
+                <div class="spinner-border text-warning" role="status">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Dispositivo</th>
+                        <th scope="col">KhWh</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let device of this.devices">
+                        <td>{{device.device}}</td>
+                        <td>{{device.KWh}} KWh</td>
+                        <td>
+                            <span [ngClass]="{'active': device.status == 'ACTIVE', 
+                        'license' : device.status === 'LICENSE',
+                        'inactive' : device.status === 'INACTIVE' }">{{device.status}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
